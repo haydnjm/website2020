@@ -50,7 +50,7 @@ solve peoples' problems, regardless of what they require.`,
     ],
   },
 ];
-const images = [
+const tools = [
   { title: "Apollo", src: "imgs/apollo.png" },
   { title: "AWS", src: "imgs/aws.png" },
   { title: "GCP", src: "imgs/gcp.png" },
@@ -86,7 +86,10 @@ const Work: React.FC = () => {
         zIndex: 10,
       }}
     >
-      <FloatingIcons ids={images} />
+      <FloatingIcons ids={tools} />
+      {/* {
+        tools.map(tool => )
+      } */}
       <Container
         sx={{
           margin: "auto",
@@ -94,32 +97,28 @@ const Work: React.FC = () => {
         }}
       >
         {works.map((work, i) => (
-          <>
-            {" "}
-            <Box key={work.title + i} my={"24px"}>
-              <Flex>
-                <Box width={1 / 3} mr={"6px"}>
-                  <Image
-                    src={work.img}
-                    maxWidth={["200px"]}
-                    maxHeight={["200px"]}
-                  />
-                </Box>
-                <Box width={2 / 3}>
-                  <Heading mb={"9px"}>{work.title}</Heading>
-                  <Heading fontSize={[2]} fontStyle="italic" mb={"9px"}>
-                    {work.date}
-                  </Heading>
-                  {work.info.map((info) => (
-                    <Text fontSize={[1]} mb="6px">
-                      {info}
-                    </Text>
-                  ))}
-                </Box>
-              </Flex>
-            </Box>
-            <hr />
-          </>
+          <Box key={work.title + i} my={"60px"}>
+            <Flex>
+              <Box width={1 / 3} mr={"6px"}>
+                <Image
+                  src={work.img}
+                  maxWidth={["200px"]}
+                  maxHeight={["200px"]}
+                />
+              </Box>
+              <Box width={2 / 3}>
+                <Heading mb={"9px"}>{work.title}</Heading>
+                <Heading fontSize={[2]} fontStyle="italic" mb={"9px"}>
+                  {work.date}
+                </Heading>
+                {work.info.map((info) => (
+                  <Text fontSize={[1]} mb="6px">
+                    {info}
+                  </Text>
+                ))}
+              </Box>
+            </Flex>
+          </Box>
         ))}
       </Container>
     </Box>

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
-import { Box, Image, Flex } from "rebass";
+import { Box, Image, Flex, SxStyleProp } from "rebass";
 import Transitioner from "../Transitioner";
 
 type IconProps = {
@@ -9,6 +9,7 @@ type IconProps = {
   seed: number;
   remove: () => void;
   initialX: number;
+  sx?: SxStyleProp;
 };
 const FloatingIcon: React.FC<IconProps> = ({
   id,
@@ -17,6 +18,7 @@ const FloatingIcon: React.FC<IconProps> = ({
   seed,
   remove: removeMe,
   initialX,
+  sx,
 }) => {
   const [xPos, setCount] = useState(initialX);
   const [hover, setHover] = useState(false);

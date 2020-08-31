@@ -4,64 +4,85 @@ export type Theme = "light" | "dark" | "colour";
 export const themes: Theme[] = ["light", "dark", "colour"];
 
 type ColorScheme = {
-  background?: string;
-  shadow?: string;
-  text?: string;
-  primary?: string;
-  primaryHigh?: string;
-  primaryLow?: string;
-  secondary?: string;
-  secondaryHigh?: string;
-  secondaryLow?: string;
+  background: string;
+  text: string;
+  link: string;
+  visited: string;
+  primary: string;
+  secondary: string;
+  codeBackground: string;
+  codeBaseColor: string;
+  string: string;
+  number: string;
+  comment: string;
+  objectProperty: string;
+  mongo: string;
+  function: string;
 };
 
 function getColours(theme: Theme): ColorScheme {
+  const dark = {
+    // Base
+    background: "#0f0f0f",
+    text: "#fafafa",
+    primary: "#66FCF1",
+    secondary: "#C5C6C7",
+    link: "#ddd",
+    visited: "#bbb",
+
+    codeBackground: "#323232",
+    codeBaseColor: "#fafafa",
+    string: "#ffb080",
+    number: "#2b2",
+    comment: "#292",
+    objectProperty: "#9cebff",
+    mongo: "#589636",
+    function: "#f7f5a8",
+  };
   switch (theme) {
     case "dark":
-      return {
-        background: "#000",
-        text: "#fff",
-        primary: "#66FCF1",
-        // primaryHigh: "#f6f6f9",
-        // primaryLow: "#f6f6f9",
-        secondary: "#C5C6C7",
-        // secondaryHigh: "#240090",
-        // secondaryLow: "#240090",
-      };
+      return dark;
     case "light":
       return {
-        background: "#fff",
-        text: "#000",
+        // Base
+        background: "#fafafa",
+        text: "#0f0f0f",
         primary: "#CCFFBF",
-        // primaryHigh: "#f6f6f9",
-        // primaryLow: "#f6f6f9",
         secondary: "#D3E3FC",
-        // secondaryHigh: "#30c",
-        // secondaryLow: "#30c",
+        link: "#555",
+        visited: "#777",
+
+        codeBackground: "#ddd",
+        codeBaseColor: "#0f0f0f",
+        string: "#b22",
+        number: "#2b2",
+        comment: "#292",
+        objectProperty: "#22b",
+        mongo: "#589636",
+        function: "#f7f5a8",
       };
     case "colour":
       return {
-        background: "#85DDCB",
-        text: "#B28C8D",
+        //Base
+        background: "#e38ac5",
+        text: "#ffef61",
         primary: "#41B3A3",
-        // primaryHigh: "#f6f6f9",
-        // primaryLow: "#f6f6f9",
         secondary: "#E27D60",
-        // secondaryHigh: "#30c",
-        // secondaryLow: "#30c",
+        link: "#f00",
+        visited: "#0f0",
+
+        codeBackground: "#ddd",
+        codeBaseColor: "#0f0f0f",
+        string: "#b22",
+        number: "#2b2",
+        comment: "#292",
+        objectProperty: "#22b",
+        mongo: "#589636",
+        function: "#f7f5a8",
       };
 
     default:
-      return {
-        background: "#fff",
-        text: "#000",
-        primary: "#3500D3",
-        // primaryHigh: "#f6f6f9",
-        // primaryLow: "#f6f6f9",
-        secondary: "#240090",
-        // secondaryHigh: "#240090",
-        // secondaryLow: "#240090",
-      };
+      return dark;
   }
 }
 export const size = (input: number) => `${input * 6}px`;
@@ -78,7 +99,7 @@ export default (theme: Theme) => ({
   fonts: {
     body: "system-ui, sans-serif",
     heading: "inherit",
-    monospace: "Avenir Next",
+    monospace: "'Source Code Pro', monospace",
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {

@@ -13,12 +13,12 @@ const StyledLink: React.FC<StyledLinkProps> = ({ sx, ...props }) => {
     <RebassLink
       as={RouterLink}
       sx={{
-        color: "green",
-        textDecorationColor: "green",
+        color: "link",
+        textDecorationColor: "link",
         ":link": {
-          color: "green",
+          color: "link",
         },
-        ":visited": "green",
+        ":visited": "visited",
         ...sx,
       }}
       {...props}

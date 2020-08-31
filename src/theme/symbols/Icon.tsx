@@ -16,6 +16,7 @@ const Icon: React.FC<Props> = ({ icon, boxProps, iconProps, onClick }) => {
       p={2}
       sx={{
         color: "text",
+        display: "inline",
         ...boxProps,
         ...(onClick ? { cursor: "pointer" } : {}),
       }}
