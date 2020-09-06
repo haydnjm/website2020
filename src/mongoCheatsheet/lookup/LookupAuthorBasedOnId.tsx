@@ -1,7 +1,8 @@
 import React from 'react';
 import { CodeBlock, T, String, ObP, M, Comment } from '../Code';
+import { CodeProps } from '..';
 
-interface LookupOrdersBasedOnIdProps {}
+interface LookupBooksFromAuthorIdProps {}
 
 const code = `
 {
@@ -13,11 +14,11 @@ const code = `
   }
 }`
 
-const LookupOrdersBasedOnId: React.FC<LookupOrdersBasedOnIdProps> = () => {
+const LookupBooksFromAuthorId: React.FC<LookupBooksFromAuthorIdProps & CodeProps> = ({ copied, setCopied }) => {
 return (
-  <CodeBlock copy={code} lines={10}>
-    <Comment>// From the Author collections, lookup documents in the Author</Comment><br />
-    <Comment>// collection based on their authorId</Comment><br />
+  <CodeBlock copy={code} lines={10} copied={copied} setCopied={setCopied}>
+    <Comment>// From the Author collections, lookup documents in the Author collection</Comment><br />
+    <Comment>// based on their authorId</Comment><br />
     {`{`}<br />
     <T/><M>$lookup</M>: {'{'}<br />
     <T/><T/><ObP>from</ObP>: <String>"Book"</String>,<br />
@@ -30,4 +31,4 @@ return (
 )
 }
 
-export default LookupOrdersBasedOnId;
+export default LookupBooksFromAuthorId;

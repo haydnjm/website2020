@@ -111,8 +111,12 @@ const Work: React.FC = () => {
                 <Heading fontSize={[2]} fontStyle="italic" mb={"9px"}>
                   {work.date}
                 </Heading>
-                {work.info.map((info) => (
-                  <Text fontSize={[1]} mb="6px">
+                {work.info.map((info, j) => (
+                  <Text
+                    key={`work info ${j} paragraph ${i}`}
+                    fontSize={[1]}
+                    mb="6px"
+                  >
                     {info}
                   </Text>
                 ))}

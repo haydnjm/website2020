@@ -1,11 +1,10 @@
 import React from "react";
 import { Transition } from "react-transition-group";
 import { TransitionStatus } from "react-transition-group/Transition";
-
-const duration = 750;
+import { TransitionTimes } from "../theme";
 
 const defaultStyle = {
-  transition: `all ${duration}ms ease-in-out`,
+  transition: `all ${TransitionTimes.MEDIUM}ms ease-in-out`,
   opacity: 0,
   transform: "translate(0, 5px)",
 };
@@ -22,7 +21,11 @@ type Props = {
   duration?: number;
 };
 
-const Transitioner: React.FC<Props> = ({ show, duration = 750, children }) => {
+const Transitioner: React.FC<Props> = ({
+  show,
+  duration = TransitionTimes.MEDIUM,
+  children,
+}) => {
   return (
     <Transition timeout={duration} in={show}>
       {(state) => (

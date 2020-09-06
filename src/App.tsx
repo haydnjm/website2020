@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { ThemeProvider } from "emotion-theming";
 import themer from "./theme";
 import ThemeContextProvider, { ThemeContext } from "./theme/ThemeContext";
@@ -7,22 +7,29 @@ import "react-toastify/dist/ReactToastify.css";
 import Routes from "./Routes";
 import Toaster from "./theme/symbols/Toaster/Toaster";
 import ThemeIcon from "./components/ThemeIcon";
+import { useLocation, BrowserRouter } from "react-router-dom";
+import HomeIcon from "./components/HomeIcon";
+import Footer from "./components/Footer";
 
-function AppWithTheme() {
+function AppWithThemeAndRoutes() {
   return (
     <ThemeContextProvider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeContextProvider>
   );
 }
 
 function App() {
   const [theme] = useContext(ThemeContext);
+  const location = useLocation();
 
   return (
     <ThemeProvider theme={() => themer(theme)}>
       <Toaster />
       <ThemeIcon />
+      {location.pathname !== "/" && <HomeIcon />}
       <Box
         sx={{
           fontFamily: "body",
@@ -33,9 +40,10 @@ function App() {
         }}
       >
         <Routes />
+        <Footer />
       </Box>
     </ThemeProvider>
   );
 }
 
-export default AppWithTheme;
+export default AppWithThemeAndRoutes;

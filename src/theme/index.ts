@@ -20,6 +20,13 @@ type ColorScheme = {
   function: string;
 };
 
+export enum TransitionTimes {
+  FAST = 300,
+  MEDIUM = 600,
+  SLOW = 900,
+  SUPER_SLOW = 1200,
+}
+
 function getColours(theme: Theme): ColorScheme {
   const dark = {
     // Base

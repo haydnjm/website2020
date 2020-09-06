@@ -4,14 +4,15 @@ import Container from "../components/Container";
 import Transitioner from "../components/Transitioner";
 import Icon from "../theme/symbols/Icon";
 import { BsChevronCompactDown } from "react-icons/bs";
+import { TransitionTimes } from "../theme";
 
 const Hero: React.FC = () => {
   const [showTitle, setShowTitle] = useState(false);
   const [showArrow, setShowArrow] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowTitle(true), 500);
-    setTimeout(() => setShowArrow(true), 1000);
+    setTimeout(() => setShowTitle(true), TransitionTimes.MEDIUM);
+    setTimeout(() => setShowArrow(true), TransitionTimes.SLOW);
   }, []);
 
   return (

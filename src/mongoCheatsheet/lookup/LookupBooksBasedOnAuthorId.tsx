@@ -1,7 +1,8 @@
 import React from 'react';
 import { CodeBlock, T, String, ObP, M, Comment } from '../Code';
+import { CodeProps } from '..';
 
-interface LookupBooksBasedOnAuthorId {}
+interface LookupBooksBasedOnAuthorId { copied: boolean }
 
 const code = `
 {
@@ -15,12 +16,11 @@ const code = `
 { $unwind: "$author" },
 `
 
-const LookupOrdersBasedOnId: React.FC<LookupBooksBasedOnAuthorId> = () => {
+const LookupOrdersBasedOnId: React.FC<LookupBooksBasedOnAuthorId & CodeProps> = ({ copied, setCopied }) => {
 return (
-  <CodeBlock copy={code} lines={12}>
-    <Comment>// From the Books collections, lookup documents in the Author</Comment><br />
-    <Comment>// collection based on their authorId and unwind as each book</Comment><br />
-    <Comment>// only has one Author</Comment><br />
+  <CodeBlock copy={code} lines={11}  copied={copied} setCopied={setCopied}>
+    <Comment>// From the Books collections, lookup documents in the Author collection based</Comment><br />
+    <Comment>// on their authorId and unwind as each book only has one Author</Comment><br />
     {`{`}<br />
     <T/><M>$lookup</M>: {'{'}<br />
     <T/><T/><ObP>from</ObP>: <String>"Author"</String>,<br />

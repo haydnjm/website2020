@@ -3,11 +3,7 @@ import { Box, Text, Flex } from "rebass";
 import { BsClipboard } from "react-icons/bs";
 import Icon from "../theme/symbols/Icon";
 import copyToClipboard from "../utils/copyToClipboard";
-
-interface CodeBlockProps {
-  copy: string;
-  lines: number;
-}
+import { TransitionTimes } from "../theme";
 
 export const T = () => <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>;
 
@@ -38,17 +34,25 @@ export const ObP: React.FC = ({ children }) => (
   </Text>
 );
 
+interface CodeBlockProps {
+  copy: string;
+  copied: boolean;
+  lines: number;
+  setCopied: () => void;
+}
+
 export const CodeBlock: React.FC<CodeBlockProps> = ({
   children,
   copy,
   lines,
+  copied,
+  setCopied,
 }) => {
   const [hover, setHover] = useState(false);
-  const [copied, setCopied] = useState(false);
   const handleCopy = useCallback(() => {
     copyToClipboard(copy);
-    setCopied(true);
-  }, [copy]);
+    setCopied();
+  }, [copy, setCopied]);
 
   return (
     <Box
@@ -74,29 +78,36 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           position: "absolute",
           top: 1,
           right: copied ? 1 : -50,
-          transition: "300ms",
+          transition: `${TransitionTimes.FAST}ms`,
         }}
       >
-        <Icon icon={BsClipboard} />
-        <Text
-          sx={{
-            display: "inline",
-            opacity: copied ? 1 : 0,
-            transition: "1000ms",
-          }}
-        >
-          Copied!
-        </Text>
+        <Flex alignItems="center" justifyContent="center">
+          <Box pt={1}>
+            <Icon icon={BsClipboard} />
+          </Box>
+          <Box>
+            <Text
+              sx={{
+                display: "inline",
+                opacity: copied ? 1 : 0,
+                transition: copied ? `${TransitionTimes.MEDIUM}ms` : 0,
+                transitionDelay: copied ? `${TransitionTimes.FAST / 2}ms` : 0,
+              }}
+            >
+              Copied!
+            </Text>
+          </Box>
+        </Flex>
       </Box>
       <Flex>
         <Box mr={1} p={3} color="visited">
           {lines ? (
             <>
               {Array.from(Array(lines), (_, i) => (
-                <>
+                <span key={`code line ${copy} ${i}`}>
                   <span>{i + 1}</span>
                   <br />
-                </>
+                </span>
               ))}
             </>
           ) : (
