@@ -10,12 +10,15 @@ import ThemeIcon from "./components/ThemeIcon";
 import { useLocation, BrowserRouter } from "react-router-dom";
 import HomeIcon from "./components/HomeIcon";
 import Footer from "./components/Footer";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 function AppWithThemeAndRoutes() {
   return (
     <ThemeContextProvider>
       <BrowserRouter>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </BrowserRouter>
     </ThemeContextProvider>
   );

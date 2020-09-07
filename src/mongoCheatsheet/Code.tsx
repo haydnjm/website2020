@@ -23,7 +23,12 @@ export const Comment: React.FC = ({ children }) => (
   </Text>
 );
 export const M: React.FC = ({ children }) => (
-  <Text display="inline" color="mongo">
+  <Text display="inline" color="comment">
+    {children}
+  </Text>
+);
+export const F: React.FC = ({ children }) => (
+  <Text display="inline" color="function">
     {children}
   </Text>
 );

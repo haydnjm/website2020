@@ -10,8 +10,11 @@ const About: React.FC = () => {
         <Box>
           <Heading fontSize={[1, 2, 3]}>
             I'm Haydn Morris. I build software. Sometimes{" "}
-            <Link to="/blog">I write about it</Link> (or about other things).
-            Sometimes <Link to="doodle">I draw</Link>.
+            <Link to="https://medium.com/@haydnjmorris" newTab external>
+              I write about it
+            </Link>{" "}
+            (or about other things). Sometimes <Link to="doodle">I draw</Link>.{" "}
+            <Link to="/mongo-cheatsheet">Mongo Aggregation Cheatsheet</Link>
           </Heading>
         </Box>
         <Box>

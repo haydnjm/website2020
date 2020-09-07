@@ -12,7 +12,7 @@ const code = `
 
 const SortArraysWithinDocuments: React.FC<SortArraysWithinDocumentsProps & CodeProps> = ({ copied, setCopied }) => {
   return (
-    <CodeBlock copy={code} lines={9} copied={copied} setCopied={setCopied}>
+    <CodeBlock copy={code} lines={12} copied={copied} setCopied={setCopied}>
       <Comment>// Sorting arrays within documents:</Comment><br />
       <Comment>// Sort the 'books' array within the Author document, by published date (ascending)</Comment><br />
       {`{`} <M>$unwind</M>: <String>"$books"</String> {'},'}<br />
