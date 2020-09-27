@@ -10,7 +10,7 @@ const works = [
     img: "/imgs/homie_WEB.png",
     info: [
       `De Energibespaarders is a Dutch startup based in Amsterdam that helps homeowners to save energy and
-    money be providing home inspections, advice on different energy saving solutions, and physical
+    money by providing home inspections, advice on different energy saving solutions, and physical
     installations of the solutions. `,
       `Through a combination of expert knowloedge and flexible tooling De Energiebespaarders is able to provide
     energy saving solutions to homes of all shapes and sizes

@@ -16,8 +16,8 @@ const code = `
 
 const MatchBetweenDates: React.FC<MatchBetweenDatesProps & CodeProps> = ({ copied, setCopied }) => {
   return (
-    <CodeBlock copy={code} lines={9} copied={copied} setCopied={setCopied}>
-      <Comment>// Match documents where the 'created' field is between 2 dates</Comment><br />
+    <CodeBlock copy={code} lines={8} copied={copied} setCopied={setCopied} title='Match between dates'>
+      {/* <Comment>// Match documents where the 'created' field is between 2 dates</Comment><br /> */}
       {`{`}<br />
       <T/><M>$match</M>: {'{'}<br />
       <T/><T/><ObP>created</ObP>: {`{`}<br />

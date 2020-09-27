@@ -37,7 +37,7 @@ const Routes: React.FC<RoutesProps> = () => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/blog" component={Writing} />
-      <Route exact path="/doodle" component={Drawings} />
+      <Route exact path="/draw" component={Drawings} />
       <Route exact path="/mongo-cheatsheet" component={MongoCheatSheet} />
       <Route render={() => <FourOhFour />} />
     </Switch>

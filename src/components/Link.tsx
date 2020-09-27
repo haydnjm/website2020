@@ -3,19 +3,14 @@ import { SxStyleProp } from "rebass";
 import { Link as RouterLink } from "react-router-dom";
 import { Link as RebassLink } from "rebass";
 
-interface StyledLinkProps {
+interface LinkProps {
   sx?: SxStyleProp;
   to: string;
   newTab?: boolean;
   external?: boolean;
 }
 
-const StyledLink: React.FC<StyledLinkProps> = ({
-  sx,
-  newTab,
-  external,
-  ...props
-}) => {
+const Link: React.FC<LinkProps> = ({ sx, newTab, external, ...props }) => {
   const openExternal = useCallback(() => {
     window.open(props.to, external ? "_blank" : undefined);
   }, [external, props.to]);
@@ -39,4 +34,4 @@ const StyledLink: React.FC<StyledLinkProps> = ({
   );
 };
 
-export default StyledLink;
+export default Link;

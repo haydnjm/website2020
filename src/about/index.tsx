@@ -13,7 +13,7 @@ const About: React.FC = () => {
             <Link to="https://medium.com/@haydnjmorris" newTab external>
               I write about it
             </Link>{" "}
-            (or about other things). Sometimes <Link to="doodle">I draw</Link>.{" "}
+            (or about other things). Sometimes <Link to="/draw">I draw</Link>.{" "}
             <Link to="/mongo-cheatsheet">Mongo Aggregation Cheatsheet</Link>
           </Heading>
         </Box>

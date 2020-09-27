@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Box, Text, Flex } from "rebass";
+import { Box, Text, Flex, Heading } from "rebass";
 import { BsClipboard } from "react-icons/bs";
 import Icon from "../theme/symbols/Icon";
 import copyToClipboard from "../utils/copyToClipboard";
@@ -40,18 +40,22 @@ export const ObP: React.FC = ({ children }) => (
 );
 
 interface CodeBlockProps {
+  title?: string;
   copy: string;
   copied: boolean;
   lines: number;
   setCopied: () => void;
+  width?: number;
 }
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({
   children,
+  title,
   copy,
   lines,
   copied,
   setCopied,
+  width,
 }) => {
   const [hover, setHover] = useState(false);
   const handleCopy = useCallback(() => {
@@ -60,67 +64,70 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   }, [copy, setCopied]);
 
   return (
-    <Box
-      my={3}
-      onMouseOver={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      sx={{
-        backgroundColor: "codeBackground",
-        color: "codeBaseColor",
-        fontFamily: "monospace",
-        position: "relative",
-        fontSize: "0.75rem",
-        lineHeight: `${1 / 0.85}rem`,
-        cursor: "pointer",
-        transform: hover ? "scale(1.005)" : "scale(1)",
-        transition: "100ms",
-        boxShadow: "0 10px 10px -8px rgba(0,0,0, 0.3)",
-      }}
-      onClick={handleCopy}
-    >
+    <Box m={0} p={2} width={width || 1 / 2}>
+      <Heading fontSize={3}>{title}</Heading>
+      <hr />
       <Box
+        onMouseOver={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         sx={{
-          position: "absolute",
-          top: 1,
-          right: copied ? 1 : -50,
-          transition: `${TransitionTimes.FAST}ms`,
+          backgroundColor: "codeBackground",
+          color: "codeBaseColor",
+          fontFamily: "monospace",
+          position: "relative",
+          fontSize: "0.6rem",
+          lineHeight: `${0.85}rem`,
+          cursor: "pointer",
+          transform: hover ? "scale(1.005)" : "scale(1)",
+          transition: "100ms",
+          boxShadow: "0 10px 10px -8px rgba(0,0,0, 0.3)",
         }}
+        onClick={handleCopy}
       >
-        <Flex alignItems="center" justifyContent="center">
-          <Box pt={1}>
-            <Icon icon={BsClipboard} />
+        <Box
+          sx={{
+            position: "absolute",
+            top: 1,
+            right: copied ? 1 : -40,
+            transition: `${TransitionTimes.FAST}ms`,
+          }}
+        >
+          <Flex alignItems="center" justifyContent="center">
+            <Box pt={1}>
+              <Icon icon={BsClipboard} />
+            </Box>
+            <Box>
+              <Text
+                sx={{
+                  display: "inline",
+                  opacity: copied ? 1 : 0,
+                  transition: copied ? `${TransitionTimes.MEDIUM}ms` : 0,
+                  transitionDelay: copied ? `${TransitionTimes.FAST / 2}ms` : 0,
+                }}
+              >
+                Copied!
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
+        <Flex>
+          <Box mr={1} p={3} color="visited">
+            {lines ? (
+              <>
+                {Array.from(Array(lines), (_, i) => (
+                  <span key={`code line ${copy} ${i}`}>
+                    <span>{i + 1}</span>
+                    <br />
+                  </span>
+                ))}
+              </>
+            ) : (
+              "NO LINES GIVEN"
+            )}
           </Box>
-          <Box>
-            <Text
-              sx={{
-                display: "inline",
-                opacity: copied ? 1 : 0,
-                transition: copied ? `${TransitionTimes.MEDIUM}ms` : 0,
-                transitionDelay: copied ? `${TransitionTimes.FAST / 2}ms` : 0,
-              }}
-            >
-              Copied!
-            </Text>
-          </Box>
+          <Box p={3}>{children}</Box>
         </Flex>
       </Box>
-      <Flex>
-        <Box mr={1} p={3} color="visited">
-          {lines ? (
-            <>
-              {Array.from(Array(lines), (_, i) => (
-                <span key={`code line ${copy} ${i}`}>
-                  <span>{i + 1}</span>
-                  <br />
-                </span>
-              ))}
-            </>
-          ) : (
-            "NO LINES GIVEN"
-          )}
-        </Box>
-        <Box p={3}>{children}</Box>
-      </Flex>
     </Box>
   );
 };

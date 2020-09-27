@@ -15,8 +15,7 @@ const code = `
 
 const MatchBeforeDate: React.FC<MatchBeforeDateProps & CodeProps> = ({ copied, setCopied }) => {
   return (
-    <CodeBlock copy={code} lines={8} copied={copied} setCopied={setCopied}>
-      <Comment>// // Match documents where the 'created' field is before Jan 01 2021 00:00:00</Comment><br />
+    <CodeBlock copy={code} lines={7} copied={copied} setCopied={setCopied} title="Match before a date">
       {`{`}<br />
       <T/><M>$match</M>: {'{'}<br />
       <T/><T/><ObP>created</ObP>: {`{`}<br />

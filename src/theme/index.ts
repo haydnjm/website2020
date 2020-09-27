@@ -32,8 +32,8 @@ function getColours(theme: Theme): ColorScheme {
     // Base
     background: "#0f0f0f",
     text: "#fafafa",
-    primary: "#66FCF1",
-    secondary: "#C5C6C7",
+    primary: "#e38ac5",
+    secondary: "#ffef61",
     link: "#ddd",
     visited: "#bbb",
 
@@ -54,8 +54,8 @@ function getColours(theme: Theme): ColorScheme {
         // Base
         background: "#fafafa",
         text: "#0f0f0f",
-        primary: "#CCFFBF",
-        secondary: "#D3E3FC",
+        primary: "#e38ac5",
+        secondary: "#ffef61",
         link: "#555",
         visited: "#777",
 
