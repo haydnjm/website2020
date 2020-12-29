@@ -4,7 +4,7 @@ interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <Flex justifyContent="center" py={"100px"} fontSize={[1]}>
+    <Flex justifyContent="center" py={"150px"} fontSize={[1]}>
       <Text>Haydn Morris, {new Date().getFullYear()}</Text>
     </Flex>
   );

@@ -1,131 +1,157 @@
-import React from "react";
-import { Heading, Image, Text, Flex, Box } from "rebass";
-import FloatingIcons from "../components/floaters/Floaters";
+import React, { useState } from "react";
+import { BsChevronCompactDown } from "react-icons/bs";
+import { Box, Flex, Heading, Image, Text } from "rebass";
 import Container from "../components/Container";
+import Icon from "../theme/symbols/Icon";
 
-const works = [
+type Block = {
+  title: string;
+  colour: string;
+  country?: string;
+  image?: string;
+};
+
+const tools: Block[] = [
+  { title: "Apollo", colour: "purple", image: "imgs/apollo.png" },
+  { title: "AWS", colour: "yellow", image: "imgs/aws.png" },
+  { title: "GCP", colour: "blue", image: "imgs/gcp.png" },
+  { title: "Github", colour: "black", image: "imgs/xxx.png" },
+  { title: "Go", colour: "blue", image: "imgs/go.png" },
+  { title: "GraphQL", colour: "pink", image: "imgs/graphql.svg" },
+  { title: "GRPC", colour: "gray", image: "imgs/grpc.png" },
+  { title: "Illustrator", colour: "yellow", image: "imgs/illustrator.png" },
+  { title: "Javascript", colour: "yellow", image: "imgs/javascript.png" },
+  { title: "jQuery", colour: "blue", image: "imgs/jquery.png" },
+  { title: "Lambda", colour: "red", image: "imgs/lambda.png" },
+  { title: "Kotlin", colour: "red", image: "imgs/kotlin.png" },
+  { title: "Laravel", colour: "red", image: "imgs/laravel.png" },
+  { title: "MongoDB", colour: "green", image: "imgs/mongo.png" },
+  { title: "MySQL", colour: "blue", image: "imgs/mysql.png" },
+  { title: "Node", colour: "green", image: "imgs/node.png" },
+  { title: "Photoshop", colour: "blue", image: "imgs/photoshop.png" },
+  { title: "PHP", colour: "red", image: "imgs/php.png" },
+  { title: "React", colour: "cyan", image: "imgs/react.png" },
+  { title: "Redux", colour: "purple", image: "imgs/redux.png" },
+  { title: "S3", colour: "yellow", image: "imgs/s3.png" },
+  { title: "Swift", colour: "purple", image: "imgs/swift.png" },
+  { title: "Typescript", colour: "blue", image: "imgs/typescript.png" },
+];
+
+const project: Block[] = [
+  { title: "Agile", colour: "red" },
+  { title: "Scrum", colour: "red" },
+  { title: "Jira", colour: "red" },
+  { title: "ClickUp", colour: "red" },
+];
+
+const companies: Block[] = [
+  { title: "Landis+Gyr", colour: "transparent", country: "Manchtester, UK" },
+  { title: "ExternPro", colour: "transparent", country: "Alcañiz, SP" },
+  { title: "AvioRace", colour: "transparent", country: "Modena, IT" },
+  {
+    title: "Intique LINK TO MEDIUM",
+    colour: "transparent",
+    country: "Manchester, UK",
+  },
+  {
+    title: "Damflask Consulting",
+    colour: "transparent",
+    country: "Sheffield, UK",
+  },
   {
     title: "De Energiebespaarders",
-    date: "From March 2019",
-    img: "/imgs/homie_WEB.png",
-    info: [
-      `De Energibespaarders is a Dutch startup based in Amsterdam that helps homeowners to save energy and
-    money by providing home inspections, advice on different energy saving solutions, and physical
-    installations of the solutions. `,
-      `Through a combination of expert knowloedge and flexible tooling De Energiebespaarders is able to provide
-    energy saving solutions to homes of all shapes and sizes
-    `,
-    ],
-  },
-  {
-    title: "Intique",
-    img: "/imgs/intique.png",
-    date: "November 2017 - June 2019",
-    info: [
-      `Intique was an online furniture marketplace that I started with James Broad, an interiors expert and lifelong friend of mine.`,
-      `We set out to build the first multi-sided interiors platform to give sellers the opportunity to brand themselves through the platform, as well as sell their stock.`,
-      `We grew our community of sellers to 60 independent businesses across the UK, with over £3m of furnture on the marketplace before deciding to close the platform to pursue other projects.`,
-    ],
-  },
-  {
-    title: "Aviorace Srl.",
-    img: "/imgs/avio.jpg",
-    date: "September 2015 - August 2016",
-    info: [
-      `Aviorace is an Italian market leading provider of electrical and electronic solutions for customers in the motorsport, automotive, aerospace and marine industries.`,
-      `Specialising in bespoke electronic solutions, diagnotics services and high quality components and connectors Aviorace assists clients from independent racing teams to
-      Formula 1 acieve their full racing potential.`,
-    ],
-  },
-  {
-    title: "MEng, Mechatronic & Robotic Engineering",
-    img: "/imgs/uni.png",
-    date: "September 2012 - July 2017",
-    info: [
-      `My time at the University of Sheffield allowed me to discover not only my strengths, but what I love.`,
-      `Covering a variety of engineering domains from mechanics, to software, to control theory, challenged me to think both widely and deeply,
- and provided me with a thirst for learning and innovation.`,
-      `This was when I realised that it was not a specific topic of engineering that had me hooked, but the application of engineering principles to
-solve peoples' problems, regardless of what they require.`,
-    ],
+    colour: "transparent",
+    country: "Amsterdam, NL",
   },
 ];
-const tools = [
-  { title: "Apollo", src: "imgs/apollo.png" },
-  { title: "AWS", src: "imgs/aws.png" },
-  { title: "GCP", src: "imgs/gcp.png" },
-  { title: "Github", src: "imgs/github.png" },
-  { title: "Go", src: "imgs/go.jpg" },
-  { title: "Graphql", src: "imgs/graphql.svg" },
-  { title: "GRPC", src: "imgs/grpc.png" },
-  { title: "Illustrator", src: "imgs/illustrator.png" },
-  { title: "Javascript", src: "imgs/javascript.png" },
-  { title: "Jquery", src: "imgs/jquery.png" },
-  { title: "Lambda", src: "imgs/lambda.png" },
-  { title: "Laravel", src: "imgs/laravel.png" },
-  { title: "MongoDB", src: "imgs/mongo.png" },
-  { title: "MySQL", src: "imgs/mysql.png" },
-  { title: "Node", src: "imgs/node.png" },
-  { title: "Photoshop", src: "imgs/photoshop.png" },
-  { title: "PHP", src: "imgs/php.png" },
-  { title: "React", src: "imgs/react.png" },
-  { title: "Redux", src: "imgs/redux.png" },
 
-  { title: "S3", src: "imgs/s3.png" },
-  { title: "Stripe", src: "imgs/stripe.png" },
-  { title: "Typescript", src: "imgs/typescript.png" },
-];
+const WorkBlocks: React.FC<{
+  title: string;
+  progress?: number;
+  blocks: Block[];
+  width: number;
+}> = ({ title, blocks, width }) => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <Box my={3}>
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        onClick={() => setVisible(!visible)}
+        sx={{ cursor: "pointer" }}
+        my={2}
+      >
+        <Box>
+          <Heading fontSize={[6]}>{title}</Heading>
+        </Box>
+        <Box>
+          <Icon
+            icon={BsChevronCompactDown}
+            iconProps={{ size: "3rem" }}
+            boxProps={{
+              display: "block",
+              transform: `rotate(${visible ? "180deg" : "0deg"})`,
+              transition: "0.2s",
+            }}
+          />
+        </Box>
+      </Flex>
+      {visible ? (
+        <Flex flexWrap="wrap" m={-1}>
+          {blocks.map((block) => (
+            <Box p={1} width={[1, 1 / width + 1, 1 / width]}>
+              <Box p={3} backgroundColor={"#000"} sx={{ borderRadius: 3 }}>
+                <Flex alignItems="center" justifyContent="space-between">
+                  <Box ml={1}>
+                    <Text fontSize={[3]} m={0} p={0}>
+                      {block.title}
+                    </Text>
+                  </Box>
+                  {block.image ? (
+                    <Image
+                      src={block.image}
+                      maxHeight={["25px"]}
+                      maxWidth={["25px"]}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </Flex>
+                {block.country ? (
+                  <Text fontSize={[2]} m={0} p={0} color="text">
+                    {block.country.includes("UK")
+                      ? "🇬🇧 "
+                      : block.country.includes("IT")
+                      ? "🇮🇹 "
+                      : block.country.includes("NL")
+                      ? "🇳🇱 "
+                      : block.country.includes("SP")
+                      ? "🇪🇸 "
+                      : "XXX"}
+                    {block.country}
+                  </Text>
+                ) : (
+                  <></>
+                )}
+              </Box>
+            </Box>
+          ))}
+        </Flex>
+      ) : (
+        <></>
+      )}
+    </Box>
+  );
+};
 
 const Work: React.FC = () => {
   return (
-    <Box
-      height={[1500]}
-      sx={{
-        position: "relative",
-        overflowX: "hidden",
-        zIndex: 10,
-      }}
-    >
-      <FloatingIcons ids={tools} />
-      {/* {
-        tools.map(tool => )
-      } */}
-      <Container
-        sx={{
-          margin: "auto",
-          position: "relative",
-        }}
-      >
-        {works.map((work, i) => (
-          <Box key={work.title + i} my={"60px"}>
-            <Flex>
-              <Box width={1 / 3} mr={"6px"}>
-                <Image
-                  src={work.img}
-                  maxWidth={["200px"]}
-                  maxHeight={["200px"]}
-                />
-              </Box>
-              <Box width={2 / 3}>
-                <Heading mb={"9px"}>{work.title}</Heading>
-                <Heading fontSize={[2]} fontStyle="italic" mb={"9px"}>
-                  {work.date}
-                </Heading>
-                {work.info.map((info, j) => (
-                  <Text
-                    key={`work info ${j} paragraph ${i}`}
-                    fontSize={[1]}
-                    mb="6px"
-                  >
-                    {info}
-                  </Text>
-                ))}
-              </Box>
-            </Flex>
-          </Box>
-        ))}
-      </Container>
-    </Box>
+    <Container>
+      <WorkBlocks title="Software Engineer" blocks={tools} width={4} />
+      <WorkBlocks title="Project Manager" blocks={project} width={2} />
+      <WorkBlocks title="Who I've worked with" blocks={companies} width={2} />
+    </Container>
   );
 };
 
