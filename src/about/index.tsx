@@ -13,7 +13,7 @@ const About: React.FC = () => {
 
   return (
     <Container>
-      <Flex height="90vh" justifyContent="center" flexDirection="column">
+      <Flex justifyContent="center" flexDirection="column">
         <Box>
           <Heading fontSize={[1, 2, 3]}>
             I'm Haydn Morris, I'm a {age} year old software engineer from the

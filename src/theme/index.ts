@@ -46,50 +46,51 @@ function getColours(theme: Theme): ColorScheme {
     mongo: "#589636",
     function: "#f7f5a8",
   };
+  const light = {
+    // Base
+    background: "#fafafa",
+    text: "#0f0f0f",
+    primary: "#e38ac5",
+    secondary: "#ffef61",
+    link: "#555",
+    visited: "#777",
+
+    codeBackground: "#ddd",
+    codeBaseColor: "#0f0f0f",
+    string: "#b22",
+    number: "#8a8430",
+    comment: "#070",
+    objectProperty: "#22b",
+    mongo: "#589636",
+    function: "#f7f5a8",
+  };
+  const colour = {
+    //Base
+    background: "#e38ac5",
+    text: "#ffef61",
+    primary: "#41B3A3",
+    secondary: "#E27D60",
+    link: "#900",
+    visited: "#090",
+
+    codeBackground: "#ddd",
+    codeBaseColor: "#0f0f0f",
+    string: "#b22",
+    number: "#2b2",
+    comment: "#292",
+    objectProperty: "#22b",
+    mongo: "#589636",
+    function: "#f7f5a8",
+  };
+
   switch (theme) {
     case "dark":
-      return dark;
-    case "light":
-      return {
-        // Base
-        background: "#fafafa",
-        text: "#0f0f0f",
-        primary: "#e38ac5",
-        secondary: "#ffef61",
-        link: "#555",
-        visited: "#777",
-
-        codeBackground: "#ddd",
-        codeBaseColor: "#0f0f0f",
-        string: "#b22",
-        number: "#8a8430",
-        comment: "#070",
-        objectProperty: "#22b",
-        mongo: "#589636",
-        function: "#f7f5a8",
-      };
-    case "colour":
-      return {
-        //Base
-        background: "#e38ac5",
-        text: "#ffef61",
-        primary: "#41B3A3",
-        secondary: "#E27D60",
-        link: "#f00",
-        visited: "#0f0",
-
-        codeBackground: "#ddd",
-        codeBaseColor: "#0f0f0f",
-        string: "#b22",
-        number: "#2b2",
-        comment: "#292",
-        objectProperty: "#22b",
-        mongo: "#589636",
-        function: "#f7f5a8",
-      };
-
     default:
       return dark;
+    case "light":
+      return light;
+    case "colour":
+      return colour;
   }
 }
 export const size = (input: number) => `${input * 6}px`;

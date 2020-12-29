@@ -18,7 +18,12 @@ const ThemeIcon: React.FC = () => {
   return (
     <Box sx={{ position: "fixed", top: "10px", right: "10px", zIndex: 1000 }}>
       <Transitioner show={showTheme}>
-        <Link newTab external to="https://medium.com/@haydnjmorris">
+        <Icon
+          icon={MdInvertColors}
+          iconProps={{ fontSize: "1.5rem" }}
+          onClick={nextTheme}
+        />
+        <Link newTab external to="https://haydnjmorris.medium.com/">
           <Icon icon={FaPenNib} iconProps={{ fontSize: "1.5rem" }} />
         </Link>
         <Link to="/draw">
@@ -27,11 +32,6 @@ const ThemeIcon: React.FC = () => {
         <Link to="/mongo-cheatsheet">
           <Icon icon={FaDatabase} iconProps={{ fontSize: "1.5rem" }} />
         </Link>
-        <Icon
-          icon={MdInvertColors}
-          iconProps={{ fontSize: "1.5rem" }}
-          onClick={nextTheme}
-        />
       </Transitioner>
     </Box>
   );
