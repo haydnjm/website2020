@@ -38,7 +38,7 @@ const tools: Block[] = [
 ];
 
 const project: Block[] = [
-  { title: "Agile/Scrum", colour: "red" },
+  { title: "Agile/Scrum", colour: "red", image: "scrum.png" },
   { title: "Jira", colour: "red", image: "jira.svg" },
   { title: "ClickUp", colour: "red", image: "clickup.png" },
 ];

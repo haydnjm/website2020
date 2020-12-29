@@ -1,24 +1,8 @@
 import React from "react";
-import { Flex, Box, Image, Heading, Button } from "rebass";
-import Link from "../components/Link";
+import { Flex, Box, Image, Heading } from "rebass";
 import Container from "../components/Container";
 
 interface DrawingsProps {}
-
-// const imgs = [
-//   {
-//     img: "/imgs/shef.jpg",
-//     title: "Sheffield",
-//   },
-//   {
-//     img: "/imgs/ij.jpg",
-//     title: "Brouwerij 't Ij",
-//   },
-//   {
-//     img: "/imgs/garden.jpg",
-//     title: "The Cow Next Door",
-//   },
-// ];
 
 const Drawing: React.FC<{
   title: string;
@@ -51,11 +35,6 @@ const Drawing: React.FC<{
               <p>{d}</p>
             ))}
           </Box>
-          <Box m={-1}>
-            <Button m={1}>Buy A4</Button>
-            <Button m={1}>Buy A3</Button>
-            <Button m={1}>Buy PDF</Button>
-          </Box>
         </Flex>
       </Box>
     </Flex>
@@ -68,13 +47,13 @@ const sheffDesc = [
 
 const hetIjDesc = [
   "Amsterdam is home to many breweries, each with its own unique personality.",
-  "This is the only one in a windmill though.",
+  "This is the only one I know of in a windmill though.",
 ];
 
 const gardenDescription = [
   "In the English countryside there's a field.",
   "In a field there's a cow.",
-  "Sometimes the cow stares at me over the garden hedge.",
+  "Sometimes the cow used to stare at me over the garden hedge.",
 ];
 
 const Drawings: React.FC<DrawingsProps> = () => {
@@ -82,15 +61,13 @@ const Drawings: React.FC<DrawingsProps> = () => {
     <>
       <Container size="l">
         <Box pt={100}>
-          <Heading>This is the heading</Heading>
-          <Heading>I'm not sure what to put here yet.</Heading>
-          <Heading>I think I'd like to have it over three lines</Heading>
-          <p>
-            All proceeds from art sales go to{" "}
-            <Link to="https://snowdropproject.co.uk/" external newTab>
-              Snowdrop project
-            </Link>
-          </p>
+          <Heading fontSize={5}>
+            These are doodles of places that I've lived
+          </Heading>
+          <Heading fontSize={3}>
+            When I get my act together I'll make these available for
+            download/purchase to try and raise some money for a worthy cause
+          </Heading>
         </Box>
         <Drawing
           img="/imgs/shef.jpg"

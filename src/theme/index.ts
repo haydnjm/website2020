@@ -70,7 +70,7 @@ function getColours(theme: Theme): ColorScheme {
     text: "#ffef61",
     primary: "#41B3A3",
     secondary: "#E27D60",
-    link: "#900",
+    link: "#3e6b70",
     visited: "#090",
 
     codeBackground: "#ddd",

@@ -27,7 +27,7 @@ const MongoCheatSheet: React.FC<MongoCheatSheetProps> = () => {
   return (
     <Container size="l">
       <HomeIcon />
-      <h1>MONGO</h1>
+      <h1>Mongo Aggregation Quick-reference</h1>
       <h2>Matching</h2>
       <Flex flexWrap="wrap">
         <MatchBeforeDate copied={copied === 8} setCopied={() => setCopied(8)} />
