@@ -11,7 +11,7 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
   return (
     <Flex flexWrap="wrap" m={-1}>
       {blocks.map((block) => (
-        <Box p={1} width={[1, 1 / width + 1, 1 / width]}>
+        <Box p={1} width={[1, 1, 1 / (width - 1), 1 / width]}>
           <Box
             p={3}
             backgroundColor={"codeBackground"}
