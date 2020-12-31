@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "rebass";
 import { MdHome } from "react-icons/md";
 import Icon from "../theme/symbols/Icon";
