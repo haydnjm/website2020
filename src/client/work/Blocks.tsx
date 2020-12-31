@@ -16,7 +16,14 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
             p={3}
             backgroundColor={"codeBackground"}
             color="text"
-            sx={{ borderRadius: 3, boxShadow: "0 3px 6px -3px #00000066" }}
+            sx={{
+              borderRadius: 3,
+              boxShadow: "0 3px 6px -3px #00000066",
+              transition: "0.1s",
+              ":hover": {
+                transform: "scale(1.03)",
+              },
+            }}
           >
             <Flex alignItems="center" justifyContent="space-between">
               <Box ml={1}>
