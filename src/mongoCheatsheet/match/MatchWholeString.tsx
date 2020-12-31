@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeBlock, T, String, ObP, M, Comment } from '../Code';
+import { CodeBlock, T, String, ObP, M } from '../Code';
 import { CodeProps } from '..';
 
 interface MatchWholeStringProps {}
@@ -7,11 +7,9 @@ interface MatchWholeStringProps {}
 const code = `
 {
   $match: {
-    created: {
-      $lt: ISODate("2021-01-01")
-    }
+      name: "Haydn"
   }
-}`
+},`
 
 const MatchWholeString: React.FC<MatchWholeStringProps & CodeProps> = ({ copied, setCopied }) => {
   return (

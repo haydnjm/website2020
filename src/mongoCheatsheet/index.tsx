@@ -47,13 +47,13 @@ const MongoCheatSheet: React.FC<MongoCheatSheetProps> = () => {
       </Flex>
       <h2>Lookups</h2>
       <Flex flexWrap="wrap">
-        <LookupAuthorBasedOnId
-          copied={copied === 4}
-          setCopied={() => setCopied(4)}
-        />
         <LookupBooksBasedOnAuthorId
           copied={copied === 3}
           setCopied={() => setCopied(3)}
+        />
+        <LookupAuthorBasedOnId
+          copied={copied === 4}
+          setCopied={() => setCopied(4)}
         />
       </Flex>
       <h2>Grouping</h2>

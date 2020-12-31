@@ -20,7 +20,14 @@ const BlogPost: React.FC<{
       sx={{ textDecoration: "none" }}
     >
       <Box>
-        <Image width={"100%"} src={image} backgroundColor="white" />
+        <Image
+          width={"100%"}
+          src={image}
+          backgroundColor="white"
+          sx={{
+            boxShadow: "0 3px 6px -3px #00000066",
+          }}
+        />
         <Heading my={1}>{title}</Heading>
         <Text color="comment" fontWeight="bold">
           Read more...

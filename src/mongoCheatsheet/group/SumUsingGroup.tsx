@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeBlock, T, String, ObP, M, F, Comment } from '../Code';
+import { CodeBlock, T, String, ObP, M, F } from '../Code';
 import { CodeProps } from '..';
 
 interface SumUsingGroupProps {}

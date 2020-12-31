@@ -1,18 +1,26 @@
 import React from "react";
-import { CodeBlock, T, String, ObP, M, Comment, Num } from "../Code";
+import { CodeBlock, T, String, ObP, M, Num } from "../Code";
 import { CodeProps } from "..";
 
 interface SortArraysWithinDocumentsProps {}
 
 const code = `
-  {
-    $unwind: { path: "$arrayProperty",  }
-  }
+{ $unwind: "$arrayProperty" },
+{
+    $sort: { "$arrayProperty.sortProperty": 1 },
+},
+{
+    $group: {
+        _id: "$_id",
+        root: { $first: "$$ROOT" },
+    }
+},
+{ $replaceRoot: { newRoot: "$root" } },
 `;
 
 const SortArraysWithinDocuments: React.FC<SortArraysWithinDocumentsProps & CodeProps> = ({ copied, setCopied, width }) => {
   return (
-    <CodeBlock copy={code} lines={10} copied={copied} setCopied={setCopied} title="Sort arrays" width={width}>
+    <CodeBlock copy={code} lines={11} copied={copied} setCopied={setCopied} title="Sort arrays" width={width}>
       {/* <Comment>// Sorting arrays within documents:</Comment><br />
       <Comment>// Sort the 'arrayProperty' array within the Author document, by published date (ascending)</Comment><br /> */}
       {`{`} <M>$unwind</M>: <String>"$arrayProperty"</String> {'},'}<br />

@@ -7,12 +7,12 @@ interface LookupBooksFromAuthorIdProps {}
 const code = `
 {
   $lookup: {
-    from: "Book",
-    as: "books",
-    localField: "_id",
-    foreignField: "authorId",
+      from: "<ForeignCollection>",
+      as: "<foreignDocuments>",
+      localField: "_id",
+      foreignField: "<localProperty>"
   }
-}`
+},`
 
 const LookupBooksFromAuthorId: React.FC<LookupBooksFromAuthorIdProps & CodeProps> = ({ copied, setCopied }) => {
 return (

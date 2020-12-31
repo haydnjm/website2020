@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeBlock, T, ObP, M, F, Comment, Num } from '../Code';
+import { CodeBlock, T, ObP, M, F, Num } from '../Code';
 import { CodeProps } from '..';
 
 interface CountUsingGroupProps {}
