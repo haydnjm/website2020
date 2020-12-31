@@ -29,11 +29,10 @@ export enum TransitionTimes {
 
 function getColours(theme: Theme): ColorScheme {
   const dark = {
-    // Base
     background: "#0f0f0f",
     text: "#fafafa",
-    primary: "#e38ac5",
-    secondary: "#ffef61",
+    primary: "#323232",
+    secondary: "#e38ac5",
     link: "#ddd",
     visited: "#bbb",
 
@@ -47,10 +46,9 @@ function getColours(theme: Theme): ColorScheme {
     function: "#f7f5a8",
   };
   const light = {
-    // Base
     background: "#fafafa",
     text: "#0f0f0f",
-    primary: "#e38ac5",
+    primary: "#ddd",
     secondary: "#ffef61",
     link: "#555",
     visited: "#777",
@@ -65,11 +63,10 @@ function getColours(theme: Theme): ColorScheme {
     function: "#f7f5a8",
   };
   const colour = {
-    //Base
     background: "#e38ac5",
     text: "#ffef61",
-    primary: "#41B3A3",
-    secondary: "#E27D60",
+    primary: "#9bdde0",
+    secondary: "#41B3A3",
     link: "#754165",
     visited: "#090",
 

@@ -14,8 +14,8 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
         <Box p={1} width={[1, 1, 1 / (width - 1), 1 / width]}>
           <Box
             p={3}
-            backgroundColor={"codeBackground"}
-            color="text"
+            backgroundColor="primary"
+            color="codeBaseColor"
             sx={{
               borderRadius: 3,
               boxShadow: "0 3px 6px -3px #00000066",

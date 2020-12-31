@@ -32,9 +32,12 @@ const Hero: React.FC = () => {
             </Transitioner>
           </Box>
 
-          <Box height="10vh">
+          <Box height="10vh" color="primary">
             <Transitioner show={showArrow}>
-              <Icon icon={BsChevronCompactDown} iconProps={{ size: "3rem" }} />
+              <Icon
+                icon={BsChevronCompactDown}
+                iconProps={{ size: "3rem", color: "secondary" }}
+              />
             </Transitioner>
           </Box>
         </Flex>
