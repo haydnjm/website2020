@@ -12,7 +12,8 @@ import MatchBeforeDate from "./match/MatchBeforeDate";
 import MatchAfterDate from "./match/MatchAfterDate";
 import MatchPartOfString from "./match/MatchPartOfString";
 import MatchWholeString from "./match/MatchWholeString";
-import { Flex } from "rebass";
+import { Box, Flex, Heading, Text } from "rebass";
+import Link from "../components/Link";
 
 interface MongoCheatSheetProps {}
 export interface CodeProps {
@@ -72,6 +73,32 @@ const MongoCheatSheet: React.FC<MongoCheatSheetProps> = () => {
           setCopied={() => setCopied(5)}
         />
       </Flex>
+      <Box pt={150} sx={{ textAlign: "center" }}>
+        <Text>
+          <Link
+            to="https://haydnjmorris.medium.com/mongodb-aggregation-cheatsheet-a0afacefa81c"
+            external={true}
+            newTab={true}
+          >
+            This
+          </Link>{" "}
+          is an article I wrote about building aggregation pipelines
+        </Text>
+        <Text>
+          If there are any that you'd like to see added then send me a comment
+          over there or let me know via{" "}
+          <Link
+            to="https://www.linkedin.com/in/haydn-morris-18b1b3a5/"
+            external={true}
+            newTab={true}
+          >
+            LinkedIn
+          </Link>{" "}
+          <span role="img" aria-label="thumbs up">
+            👍
+          </span>
+        </Text>
+      </Box>
     </Container>
   );
 };
