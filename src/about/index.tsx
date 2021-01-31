@@ -6,7 +6,7 @@ const About: React.FC = () => {
   const age = useMemo(() => {
     const date = new Date();
     const year = date.getFullYear();
-    const dayOfMonth = date.getUTCMonth();
+    const dayOfMonth = date.getUTCDate();
     const afterBirthday = dayOfMonth >= 20 || date.getMonth() > 0;
     return year - 1994 + (afterBirthday ? 0 : -1);
   }, []);
