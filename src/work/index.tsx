@@ -15,6 +15,7 @@ export type Block = {
 const tools: Block[] = [
   { title: "Apollo", colour: "purple", image: "apollo.png" },
   { title: "AWS", colour: "yellow", image: "aws.png" },
+  { title: "Compose", colour: "yellow", image: "jetpack.png" },
   { title: "GCP", colour: "blue", image: "gcp.png" },
   { title: "Go", colour: "blue", image: "go.png" },
   { title: "GraphQL", colour: "pink", image: "graphql.png" },
@@ -22,6 +23,7 @@ const tools: Block[] = [
   { title: "Illustrator", colour: "yellow", image: "illustrator.png" },
   { title: "Javascript", colour: "yellow", image: "javascript.png" },
   { title: "jQuery", colour: "blue", image: "jquery.png" },
+  { title: "KMM", colour: "red", image: "kmm.png" },
   { title: "Kotlin", colour: "red", image: "kotlin.png" },
   { title: "Laravel", colour: "red", image: "laravel.png" },
   { title: "MongoDB", colour: "green", image: "mongo.png" },
