@@ -22,9 +22,9 @@ return (
     {/* <Comment>// From the Books collections, lookup documents in the Author collection based</Comment><br />
     <Comment>// on their authorId and unwind as each book only has one Author</Comment><br /> */}
     {`{`}<br />
-    <T/><M>$lookup</M>: <br />
-    <T/><T/><ObP>from</ObP>: <String>"ForignCollection"</String>,<br />
-    <T/><T/><ObP>as</ObP>: <String>"foreginDocument"</String>,<br />
+    <T/><M>$lookup</M>: {`{`}<br />
+    <T/><T/><ObP>from</ObP>: <String>"ForeignCollection"</String>,<br />
+    <T/><T/><ObP>as</ObP>: <String>"foreignDocument"</String>,<br />
     <T/><T/><ObP>localField</ObP>: <String>"documentId"</String>,<br />
     <T/><T/><ObP>foreignField</ObP>: <String>"_id"</String><br />
     <T/>{`}`}<br />
