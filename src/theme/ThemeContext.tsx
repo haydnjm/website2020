@@ -8,7 +8,7 @@ type Props = {
   defaultTheme?: Theme;
 };
 const Provider: React.FC<Props> = ({ children, defaultTheme }) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme || "dark");
+  const [theme, setTheme] = useState<Theme>(defaultTheme || "light");
 
   const nextTheme = useCallback(() => {
     setTheme(
