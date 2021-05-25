@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
           <Box height="10vh" />
           <Box>
             <Transitioner show={showTitle}>
-              <Heading fontSize={[4]}>Haydn Morris</Heading>
+              <Heading fontSize={[4]}>Haydn Morris - hello</Heading>
             </Transitioner>
           </Box>
 
