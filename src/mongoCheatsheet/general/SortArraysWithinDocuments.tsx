@@ -20,7 +20,7 @@ const code = `
 
 const SortArraysWithinDocuments: React.FC<SortArraysWithinDocumentsProps & CodeProps> = ({ copied, setCopied, width }) => {
   return (
-    <CodeBlock copy={code} lines={11} copied={copied} setCopied={setCopied} title="Sort arrays" width={width}>
+    <CodeBlock copy={code} lines={11} copied={copied} setCopied={setCopied} title="Sort array and get first element" width={width}>
       {/* <Comment>// Sorting arrays within documents:</Comment><br />
       <Comment>// Sort the 'arrayProperty' array within the Author document, by published date (ascending)</Comment><br /> */}
       {`{`} <M>$unwind</M>: <String>"$arrayProperty"</String> {'},'}<br />
