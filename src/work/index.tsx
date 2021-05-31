@@ -51,7 +51,7 @@ const companies: Block[] = [
     title: "Landis+Gyr",
     colour: "transparent",
     country: "Manchtester, UK",
-    image: "landis.jpeg",
+    image: "landis.jpg",
   },
   {
     title: "ExternPro",
