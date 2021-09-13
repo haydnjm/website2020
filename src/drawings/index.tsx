@@ -10,8 +10,8 @@ const Drawing: React.FC<{
   description: string[];
 }> = ({ title, img, description }) => {
   return (
-    <Flex my="150px">
-      <Box width={[1 / 2]}>
+    <Flex my="150px" flexWrap="wrap">
+      <Box width={[1, 1, 1 / 2]} mb={[50, 50, 0]}>
         <Image
           src={img}
           sx={{
@@ -23,7 +23,7 @@ const Drawing: React.FC<{
           }}
         />
       </Box>
-      <Box width={[1 / 2]}>
+      <Box width={[1, 1, 1 / 2]}>
         <Flex
           flexDirection="column"
           justifyContent="space-between"
@@ -32,7 +32,7 @@ const Drawing: React.FC<{
           <Box>
             <Heading>{title}</Heading>
             {description.map((d) => (
-              <p>{d}</p>
+              <p key={d}>{d}</p>
             ))}
           </Box>
         </Flex>
@@ -61,13 +61,7 @@ const Drawings: React.FC<DrawingsProps> = () => {
     <>
       <Container size="l">
         <Box pt={100}>
-          <Heading fontSize={5}>
-            These are doodles of places that I've lived
-          </Heading>
-          <Heading fontSize={3}>
-            When I get my act together I'll make these available for
-            download/purchase to try and raise some money for a worthy cause
-          </Heading>
+          <Heading fontSize={5}>Some doodles of places that I've lived</Heading>
         </Box>
         <Drawing
           img="/imgs/shef.jpg"

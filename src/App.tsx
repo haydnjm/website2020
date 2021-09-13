@@ -6,9 +6,8 @@ import { Box } from "rebass";
 import "react-toastify/dist/ReactToastify.css";
 import Routes from "./Routes";
 import Toaster from "./theme/symbols/Toaster/Toaster";
-import ThemeIcon from "./components/ThemeIcon";
-import { useLocation, BrowserRouter } from "react-router-dom";
-import HomeIcon from "./components/HomeIcon";
+import TopNav from "./components/TopNav";
+import { BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer";
 import ScrollToTop from "./hooks/ScrollToTop";
 
@@ -26,13 +25,11 @@ function AppWithThemeAndRoutes() {
 
 function App() {
   const [theme] = useContext(ThemeContext);
-  const location = useLocation();
 
   return (
     <ThemeProvider theme={() => themer(theme)}>
       <Toaster />
-      <ThemeIcon />
-      {location.pathname !== "/" && <HomeIcon />}
+      <TopNav />
       <Box
         sx={{
           fontFamily: "body",

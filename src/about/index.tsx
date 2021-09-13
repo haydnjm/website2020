@@ -22,7 +22,7 @@ const About: React.FC = () => {
         </Box>
         <Box>
           <Text fontSize={[1]} py={3}>
-            I'm currently living in Amsterdam, NL, and have been for around{" "}
+            I'm currently living in the Netherlands, and have been for around{" "}
             {new Date().getFullYear() - 2019} years. Creating solutions to
             problems is what I enjoy doing. I've found that building high
             quality software is a good way to do that.
