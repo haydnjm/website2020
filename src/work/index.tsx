@@ -1,87 +1,106 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { Box, Flex, Heading } from "rebass";
 import Container from "../components/Container";
 import Icon from "../theme/symbols/Icon";
 import Blocks from "./Blocks";
 
-export type Block = {
+export type WorkBlock = {
   title: string;
-  colour: string;
   country?: string;
   image?: string;
 };
 
+export type Divider = {
+  dividerText: string;
+  icon?: ReactNode;
+};
+
+export type Block = WorkBlock | Divider;
+
 const tools: Block[] = [
-  { title: "Apollo", colour: "purple", image: "apollo.png" },
-  { title: "AWS", colour: "yellow", image: "aws.png" },
-  { title: "Compose", colour: "yellow", image: "jetpack.png" },
-  { title: "GCP", colour: "blue", image: "gcp.png" },
-  { title: "Go", colour: "blue", image: "go.png" },
-  { title: "GraphQL", colour: "pink", image: "graphql.png" },
-  { title: "GRPC", colour: "gray", image: "grpc.png" },
-  { title: "Illustrator", colour: "yellow", image: "illustrator.png" },
-  { title: "Javascript", colour: "yellow", image: "javascript.png" },
-  { title: "jQuery", colour: "blue", image: "jquery.png" },
-  { title: "KMM", colour: "red", image: "kmm.png" },
-  { title: "Kotlin", colour: "red", image: "kotlin.png" },
-  { title: "Laravel", colour: "red", image: "laravel.png" },
-  { title: "MongoDB", colour: "green", image: "mongo.png" },
-  { title: "MySQL", colour: "blue", image: "mysql.png" },
-  { title: "Next.js", colour: "blue", image: "next_logo.png" },
-  { title: "Node", colour: "green", image: "node.png" },
-  { title: "Photoshop", colour: "blue", image: "photoshop.png" },
-  { title: "PHP", colour: "red", image: "php.png" },
-  { title: "Postgres", colour: "red", image: "postgres.png" },
-  { title: "React", colour: "cyan", image: "react.png" },
-  { title: "Redux", colour: "purple", image: "redux.png" },
-  { title: "Swift", colour: "purple", image: "swift.png" },
-  { title: "SwiftUI", colour: "purple", image: "swiftui.png" },
-  { title: "Typescript", colour: "blue", image: "typescript.png" },
+  { dividerText: "Development" },
+  { title: "Apollo", image: "apollo.png" },
+  { title: "Compose", image: "jetpack.png" },
+  { title: "Go", image: "go.png" },
+  { title: "GraphQL", image: "graphql.png" },
+  { title: "GRPC", image: "grpc.png" },
+  { title: "Javascript", image: "javascript.png" },
+  { title: "jQuery", image: "jquery.png" },
+  { title: "KMM", image: "kmm.png" },
+  { title: "Kotlin", image: "kotlin.png" },
+  { title: "Laravel", image: "laravel.png" },
+  { title: "Next.js", image: "next_logo.png" },
+  { title: "Node", image: "node.png" },
+  { title: "PHP", image: "php.png" },
+  { title: "React", image: "react.png" },
+  { title: "Redux", image: "redux.png" },
+  { title: "Swift", image: "swift.png" },
+  { title: "SwiftUI", image: "swiftui.png" },
+  { title: "Typescript", image: "typescript.png" },
+  { dividerText: "Data" },
+  { title: "MongoDB", image: "mongo.png" },
+  { title: "MySQL", image: "mysql.png" },
+  { title: "Postgres", image: "postgres.png" },
+  { title: "Tableau", image: "tableau.svg" },
+  { dividerText: "Infrastructure" },
+  { title: "AWS", image: "aws.png" },
+  { title: "Docker", image: "docker.png" },
+  { title: "GCP", image: "gcp.png" },
+  { dividerText: "Design" },
+  { title: "Figma", image: "figma.png" },
+  { title: "Illustrator", image: "illustrator.png" },
+  { title: "Photoshop", image: "photoshop.png" },
 ];
 
 const project: Block[] = [
-  { title: "Agile/Scrum", colour: "red", image: "scrum.png" },
-  { title: "Jira", colour: "red", image: "jira.svg" },
-  { title: "ClickUp", colour: "red", image: "clickup.png" },
+  { title: "Agile/Scrum", image: "scrum.png" },
+  { title: "Jira", image: "jira.svg" },
+  { title: "ClickUp", image: "clickup.png" },
 ];
 
 const companies: Block[] = [
   {
     title: "Landis+Gyr",
-    colour: "transparent",
+
     country: "Manchtester, UK",
     image: "landis.jpg",
   },
   {
     title: "ExternPro",
-    colour: "transparent",
+
     country: "Alcañiz, SP",
     image: "externpro.png",
   },
   {
     title: "AvioRace",
-    colour: "transparent",
+
     country: "Modena, IT",
     image: "avio.jpg",
   },
   {
     title: "Intique",
-    colour: "transparent",
+
     country: "Manchester, UK",
     image: "intique.png",
   },
   {
     title: "Damflask Consulting",
-    colour: "transparent",
+
     country: "Sheffield, UK",
     image: "damflask.png",
   },
   {
     title: "De Energiebespaarders",
-    colour: "transparent",
+
     country: "Amsterdam, NL",
     image: "deb.png",
+  },
+  {
+    title: "Erasmus Tech Community",
+
+    country: "Rotterdam, NL",
+    image: "etc.svg",
   },
 ];
 
@@ -102,6 +121,7 @@ const WorkBlocks: React.FC<{
         sx={{ cursor: "pointer" }}
         my={2}
       >
+        {}
         <Box>
           <Heading fontSize={[6]}>{title}</Heading>
         </Box>

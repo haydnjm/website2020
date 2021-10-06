@@ -12,7 +12,7 @@ import MatchBeforeDate from "./match/MatchBeforeDate";
 import MatchAfterDate from "./match/MatchAfterDate";
 import MatchPartOfString from "./match/MatchPartOfString";
 import MatchWholeString from "./match/MatchWholeString";
-import { Box, Flex, Heading, Text } from "rebass";
+import { Box, Flex, Text } from "rebass";
 import Link from "../components/Link";
 
 interface MongoCheatSheetProps {}

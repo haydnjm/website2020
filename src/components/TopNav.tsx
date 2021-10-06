@@ -32,25 +32,25 @@ const ThemeIcon: React.FC = () => {
       <Transitioner show={showTheme}>
         <Flex justifyContent="space-between">
           <Box>
-            <Socials />
             {location.pathname !== "/" && (
               <Link to="/">
                 <Icon icon={MdHome} iconProps={{ fontSize: "1.5rem" }} />
               </Link>
             )}
-          </Box>
-          <Box>
-            <Icon
-              icon={MdInvertColors}
-              iconProps={{ fontSize: "1.5rem" }}
-              onClick={nextTheme}
-            />
             <Link to="/draw">
               <Icon icon={FaPaintBrush} iconProps={{ fontSize: "1.5rem" }} />
             </Link>
             <Link to="/mongo-cheatsheet">
               <Icon icon={FaDatabase} iconProps={{ fontSize: "1.5rem" }} />
             </Link>
+            <Icon
+              icon={MdInvertColors}
+              iconProps={{ fontSize: "1.5rem" }}
+              onClick={nextTheme}
+            />
+          </Box>
+          <Box>
+            <Socials />
           </Box>
         </Flex>
       </Transitioner>
