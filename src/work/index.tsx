@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import { BsChevronCompactDown } from "react-icons/bs";
-import { Box, Flex, Heading } from "rebass";
+import { Box, Flex, Heading, Text } from "rebass";
 import Container from "../components/Container";
 import Icon from "../theme/symbols/Icon";
 import Blocks from "./Blocks";
@@ -138,6 +138,18 @@ const WorkBlocks: React.FC<{
         </Box>
       </Flex>
       {visible ? <Blocks blocks={blocks} width={width} /> : <></>}
+      {visible ? (
+        <Box mt={2}>
+          <Text
+            onClick={() => setVisible(false)}
+            sx={{ cursor: "pointer", textDecoration: "underline" }}
+          >
+            [x] close
+          </Text>
+        </Box>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 };
