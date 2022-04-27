@@ -102,6 +102,11 @@ const companies: Block[] = [
     country: "Rotterdam, NL",
     image: "etc.svg",
   },
+  {
+    title: "PA Consulting",
+    country: "Utrecht, NL",
+    image: "pa.png",
+  },
 ];
 
 const WorkBlocks: React.FC<{
@@ -121,7 +126,6 @@ const WorkBlocks: React.FC<{
         sx={{ cursor: "pointer" }}
         my={2}
       >
-        {}
         <Box>
           <Heading fontSize={[6]}>{title}</Heading>
         </Box>

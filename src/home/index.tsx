@@ -4,6 +4,7 @@ import Work from "../work";
 import Hero from "../hero";
 import Blog from "../blog";
 import { Box } from "rebass";
+import Projects from "../projects";
 
 interface HomeProps {}
 
@@ -17,6 +18,8 @@ const Home: React.FC<HomeProps> = () => {
       <About />
       <Spacer />
       <Work />
+      <Spacer />
+      <Projects />
       <Spacer />
       <Blog />
     </>
