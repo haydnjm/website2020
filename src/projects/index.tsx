@@ -56,7 +56,6 @@ const Project: React.FC<Project> = ({
           to={link}
           sx={{
             textDecoration: "none",
-            color: "white",
           }}
         >
           <Box
@@ -72,6 +71,7 @@ const Project: React.FC<Project> = ({
               sx={{
                 position: "relative",
                 zIndex: 1,
+                color: "white",
               }}
             >
               <Heading lineHeight={1} fontSize={4} mb={2}>
