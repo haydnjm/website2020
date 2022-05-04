@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Box, Flex, Image, Text } from "rebass";
 import { Block, Divider as TDivider, WorkBlock as TWorkBlock } from ".";
+import Link from "../components/Link";
 import Transitioner from "../components/Transitioner";
+
+const WrappedWorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
+  if (block.link) {
+    return (
+      <Link to={block.link} external newTab sx={{ textDecoration: "none" }}>
+        <WorkBlock block={block} />
+      </Link>
+    );
+  }
+  return <WorkBlock block={block} />;
+};
 
 const WorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
   return (
@@ -116,7 +128,7 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
         ) : (
           <Box p={1} width={[1, 1, 1 / (width - 1), 1 / width]}>
             <Transitioner show={showing > i} duration={1500}>
-              <WorkBlock block={block} />
+              <WrappedWorkBlock block={block} />
             </Transitioner>
           </Box>
         );

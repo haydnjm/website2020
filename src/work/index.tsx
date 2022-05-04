@@ -9,6 +9,7 @@ export type WorkBlock = {
   title: string;
   country?: string;
   image?: string;
+  link?: string;
 };
 
 export type Divider = {
@@ -65,18 +66,21 @@ const companies: Block[] = [
 
     country: "Manchtester, UK",
     image: "landis.jpg",
+    link: "https://www.landisgyr.eu/",
   },
   {
     title: "ExternPro",
 
     country: "Alcañiz, SP",
     image: "externpro.png",
+    link: "https://www.motogp.com/en/news/2013/06/12/externpro-looking-after-engines-from-motorland/161625",
   },
   {
     title: "AvioRace",
 
     country: "Modena, IT",
     image: "avio.jpg",
+    link: "https://aviorace.it/en",
   },
   {
     title: "Intique",
@@ -89,23 +93,27 @@ const companies: Block[] = [
 
     country: "Sheffield, UK",
     image: "damflask.png",
+    link: "https://damflask-consulting.com/",
   },
   {
     title: "De Energiebespaarders",
 
     country: "Amsterdam, NL",
     image: "deb.png",
+    link: "http://energiebespaarders.nl/",
   },
   {
     title: "Erasmus Tech Community",
 
     country: "Rotterdam, NL",
     image: "etc.svg",
+    link: "https://www.erasmustech.io/",
   },
   {
     title: "PA Consulting",
     country: "Utrecht, NL",
     image: "pa.png",
+    link: "https://www.paconsulting.com/",
   },
 ];
 
