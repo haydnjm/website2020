@@ -15,9 +15,7 @@ const Home: React.FC<HomeProps> = () => {
   useEffect(() => {
     if (scrollTo) {
       const elem = document.getElementById(scrollTo);
-      console.log(elem);
       if (elem) {
-        console.log("scrolling to " + elem.offsetTop);
         window.scrollTo({ top: elem.offsetTop - 40 });
       }
     }
