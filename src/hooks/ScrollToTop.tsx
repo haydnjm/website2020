@@ -5,12 +5,14 @@ const ScrollToTop: React.FC<{
   history: any;
 }> = ({ history, children }) => {
   useEffect(() => {
-    const unlisten = history.listen(() => {
-      window.scrollTo(0, 0);
-    });
-    return () => {
-      unlisten();
-    };
+    if (!window?.location?.hash) {
+      const unlisten = history.listen(() => {
+        window.scrollTo(0, 0);
+      });
+      return () => {
+        unlisten();
+      };
+    }
   }, [history]);
 
   return <Fragment>{children}</Fragment>;

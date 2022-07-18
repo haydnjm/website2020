@@ -48,6 +48,7 @@ const tools: Block[] = [
   { title: "AWS", image: "aws.png" },
   { title: "Docker", image: "docker.png" },
   { title: "GCP", image: "gcp.png" },
+  { title: "Kubernetes", image: "k8.png" },
   { dividerText: "Design" },
   { title: "Figma", image: "figma.png" },
   { title: "Illustrator", image: "illustrator.png" },
@@ -118,60 +119,78 @@ const companies: Block[] = [
 ];
 
 const WorkBlocks: React.FC<{
+  id: string;
   title: string;
   progress?: number;
   blocks: Block[];
   width: number;
-}> = ({ title, blocks, width }) => {
-  const [visible, setVisible] = useState(false);
+}> = ({ title, blocks, width, id }) => {
+  const [visible, setVisible] = useState(window?.location?.hash === id);
 
   return (
-    <Box my={3}>
-      <Flex
-        justifyContent="space-between"
-        alignItems="center"
-        onClick={() => setVisible(!visible)}
-        sx={{ cursor: "pointer" }}
-        my={2}
-      >
-        <Box>
-          <Heading fontSize={[6]}>{title}</Heading>
-        </Box>
-        <Box>
-          <Icon
-            icon={BsChevronCompactDown}
-            iconProps={{ size: "3rem" }}
-            boxProps={{
-              display: "block",
-              transform: `rotate(${visible ? "180deg" : "0deg"})`,
-              transition: "0.5s",
-            }}
-          />
-        </Box>
-      </Flex>
-      {visible ? <Blocks blocks={blocks} width={width} /> : <></>}
-      {visible ? (
-        <Box mt={2}>
-          <Text
-            onClick={() => setVisible(false)}
-            sx={{ cursor: "pointer", textDecoration: "underline" }}
-          >
-            [x] close
-          </Text>
-        </Box>
-      ) : (
-        <></>
-      )}
-    </Box>
+    <div id={id}>
+      <Box my={3} id={id}>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          onClick={() => setVisible(!visible)}
+          sx={{ cursor: "pointer" }}
+          my={2}
+        >
+          <Box>
+            <Heading fontSize={[6]}>{title}</Heading>
+          </Box>
+          <Box>
+            <Icon
+              icon={BsChevronCompactDown}
+              iconProps={{ size: "3rem" }}
+              boxProps={{
+                display: "block",
+                transform: `rotate(${visible ? "180deg" : "0deg"})`,
+                transition: "0.5s",
+              }}
+            />
+          </Box>
+        </Flex>
+        {visible ? <Blocks blocks={blocks} width={width} /> : <></>}
+        {visible ? (
+          <Box mt={2}>
+            <Text
+              onClick={() => setVisible(false)}
+              sx={{ cursor: "pointer", textDecoration: "underline" }}
+            >
+              [x] close
+            </Text>
+          </Box>
+        ) : (
+          <></>
+        )}
+      </Box>
+    </div>
   );
 };
 
 const Work: React.FC = () => {
   return (
     <Container>
-      <WorkBlocks title="Software Engineer" blocks={tools} width={4} />
-      <WorkBlocks title="Project Manager" blocks={project} width={3} />
-      <WorkBlocks title="Who I've worked with" blocks={companies} width={2} />
+      <WorkBlocks
+        id={"#software"}
+        title="Software Engineer"
+        blocks={tools}
+        width={4}
+      />
+      <WorkBlocks
+        id={"#project"}
+        title="Project Manager"
+        blocks={project}
+        width={3}
+      />
+      <WorkBlocks
+        id={"#companies"}
+        title="Who I've worked with"
+        blocks={companies}
+        width={2}
+      />
     </Container>
   );
 };

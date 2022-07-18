@@ -120,13 +120,17 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
     <Flex flexWrap="wrap" m={-1}>
       {blocks.map((block, i) => {
         return "dividerText" in block ? (
-          <Box width={1}>
+          <Box width={1} key={"block" + i}>
             <Transitioner show={showing > i} duration={1500}>
               <Divider divider={block} />
             </Transitioner>
           </Box>
         ) : (
-          <Box p={1} width={[1, 1, 1 / (width - 1), 1 / width]}>
+          <Box
+            key={"block" + i}
+            p={1}
+            width={[1, 1, 1 / (width - 1), 1 / width]}
+          >
             <Transitioner show={showing > i} duration={1500}>
               <WrappedWorkBlock block={block} />
             </Transitioner>
