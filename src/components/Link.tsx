@@ -18,7 +18,7 @@ const Link: React.FC<LinkProps> = ({ sx, newTab, external, ...props }) => {
   return (
     <RebassLink
       target={newTab ? "_blank" : undefined}
-      as={RouterLink}
+      as={!external ? RouterLink : undefined}
       onClick={() => external && openExternal()}
       sx={{
         color: "link",
@@ -27,6 +27,7 @@ const Link: React.FC<LinkProps> = ({ sx, newTab, external, ...props }) => {
           color: "link",
         },
         ":visited": "visited",
+        cursor: "pointer",
         ...sx,
       }}
       {...props}

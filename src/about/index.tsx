@@ -1,23 +1,14 @@
-import React, { useMemo } from "react";
-import { Heading, Box, Flex, Text } from "rebass";
+import React from "react";
+import { Box, Flex, Heading, Text } from "rebass";
 import Container from "../components/Container";
 
 const About: React.FC = () => {
-  const age = useMemo(() => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const dayOfMonth = date.getUTCDate();
-    const afterBirthday = dayOfMonth >= 20 || date.getMonth() > 0;
-    return year - 1994 + (afterBirthday ? 0 : -1);
-  }, []);
-
   return (
     <Container>
       <Flex justifyContent="center" flexDirection="column">
         <Box>
           <Heading fontSize={[1, 2, 3]}>
-            I'm Haydn Morris, I'm a {age} year old software engineer from the
-            UK.
+            I'm Haydn Morris, I'm a software engineer from the UK.
           </Heading>
         </Box>
         <Box>
