@@ -8,7 +8,7 @@ const About: React.FC = () => {
       <Flex justifyContent="center" flexDirection="column">
         <Box>
           <Heading fontSize={[1, 2, 3]}>
-            I'm Haydn Morris, I'm a software engineer from the UK.
+            I'm Haydn Morris, a software engineer from the UK.
           </Heading>
         </Box>
         <Box>

@@ -6,7 +6,7 @@ import Container from "../components/Container";
 const works = [
   {
     title: "De Energiebespaarders",
-    date: "From March 2019",
+    date: "March 2019 - April 2023",
     img: "/imgs/homie_WEB.png",
     info: [
       `De Energibespaarders is a Dutch startup based in Amsterdam that helps homeowners to save energy and

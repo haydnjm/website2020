@@ -22,7 +22,9 @@ const Link: React.FC<LinkProps> = ({ sx, newTab, external, ...props }) => {
       onClick={() => external && openExternal()}
       sx={{
         color: "link",
+        textDecoration: "underline",
         textDecorationColor: "link",
+        display: "inline",
         ":link": {
           color: "link",
         },

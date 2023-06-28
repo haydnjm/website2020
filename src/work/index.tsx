@@ -25,12 +25,14 @@ const tools: Block[] = [
   { title: "Compose", image: "jetpack.png" },
   { title: "Go", image: "go.png" },
   { title: "GraphQL", image: "graphql.png" },
-  { title: "GRPC", image: "grpc.png" },
+  { title: "Flutter", image: "flutter.svg" },
+  { title: "gRPC", image: "grpc.png" },
   { title: "Javascript", image: "javascript.png" },
   { title: "jQuery", image: "jquery.png" },
   { title: "KMM", image: "kmm.png" },
   { title: "Kotlin", image: "kotlin.png" },
   { title: "Laravel", image: "laravel.png" },
+  { title: "MQTT", image: "mqtt.png" },
   { title: "Next.js", image: "next_logo.png" },
   { title: "Node", image: "node.png" },
   { title: "PHP", image: "php.png" },
@@ -39,16 +41,24 @@ const tools: Block[] = [
   { title: "Swift", image: "swift.png" },
   { title: "SwiftUI", image: "swiftui.png" },
   { title: "Typescript", image: "typescript.png" },
+
   { dividerText: "Data" },
+  { title: "BigQuery", image: "bq.png" },
+  { title: "dbt", image: "dbt.png" },
+  { title: "Firestore", image: "cloud-firestore.svg" },
   { title: "MongoDB", image: "mongo.png" },
   { title: "MySQL", image: "mysql.png" },
   { title: "Postgres", image: "postgres.png" },
   { title: "Tableau", image: "tableau.svg" },
+
   { dividerText: "Infrastructure" },
   { title: "AWS", image: "aws.png" },
   { title: "Docker", image: "docker.png" },
+  { title: "Flux", image: "flux.png" },
   { title: "GCP", image: "gcp.png" },
   { title: "Kubernetes", image: "k8.png" },
+  { title: "Terraform", image: "terraform.webp" },
+
   { dividerText: "Design" },
   { title: "Figma", image: "figma.png" },
   { title: "Illustrator", image: "illustrator.png" },
@@ -57,8 +67,9 @@ const tools: Block[] = [
 
 const project: Block[] = [
   { title: "Agile/Scrum", image: "scrum.png" },
-  { title: "Jira", image: "jira.svg" },
   { title: "ClickUp", image: "clickup.png" },
+  { title: "Jira", image: "jira.svg" },
+  { title: "Projects", image: "github.png" },
 ];
 
 const companies: Block[] = [
@@ -115,6 +126,12 @@ const companies: Block[] = [
     country: "Utrecht, NL",
     image: "pa.png",
     link: "https://www.paconsulting.com/",
+  },
+  {
+    title: "Ivy Solutions GmbH",
+    country: "Munich, DE",
+    image: "ivy.jpg",
+    link: "https://www.ivy-solutions.de/",
   },
 ];
 

@@ -10,7 +10,7 @@ const Drawing: React.FC<{
   description: string[];
 }> = ({ title, img, description }) => {
   return (
-    <Flex my="150px" flexWrap="wrap">
+    <Flex my="150px" flexWrap="wrap" alignItems={"center"}>
       <Box width={[1, 1, 1 / 2]} mb={[50, 50, 0]}>
         <Image
           src={img}

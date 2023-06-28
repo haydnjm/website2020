@@ -45,6 +45,8 @@ const WorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
                 ? "🇳🇱 "
                 : block.country.includes("SP")
                 ? "🇪🇸 "
+                : block.country.includes("DE")
+                ? "🇩🇪 "
                 : "XXX"}
               {block.country}
             </Text>
