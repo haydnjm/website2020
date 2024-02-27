@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Box, Flex, Image, Text } from "rebass";
 import { Block, Divider as TDivider, WorkBlock as TWorkBlock } from ".";
 import Link from "../components/Link";
@@ -15,6 +15,13 @@ const WrappedWorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
   return <WorkBlock block={block} />;
 };
 
+const blockTypeGuard = (block: Block): block is TWorkBlock => {
+  return "title" in block;
+};
+const dividerTypeGuard = (block: Block): block is TDivider => {
+  return "dividerText" in block;
+};
+
 const WorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
   return (
     <Box
@@ -22,6 +29,7 @@ const WorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
       backgroundColor="primary"
       color="codeBaseColor"
       sx={{
+        height: block.large ? "140px" : "66px",
         borderRadius: 3,
         boxShadow: "0 3px 6px -3px #00000066",
         transition: "0.1s",
@@ -30,9 +38,14 @@ const WorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
         },
       }}
     >
-      <Flex alignItems="center" justifyContent="space-between">
+      <Flex alignItems="center" justifyContent="space-between" height={"100%"}>
         <Box ml={1}>
-          <Text fontSize={[3]} m={0} p={0} sx={{ cursor: "default" }}>
+          <Text
+            fontSize={block.large ? [3] : [2]}
+            m={0}
+            p={0}
+            sx={{ cursor: "default" }}
+          >
             {block.title}
           </Text>
           {block.country ? (
@@ -57,8 +70,12 @@ const WorkBlock: React.FC<{ block: TWorkBlock }> = ({ block }) => {
         {block.image ? (
           <Image
             src={`imgs/${block.image}`}
-            maxHeight={block.country ? ["40px"] : ["25px"]}
-            maxWidth={block.country ? ["40px"] : ["25px"]}
+            maxHeight={
+              block.country ? ["40px"] : block.large ? ["50px"] : ["25px"]
+            }
+            maxWidth={
+              block.country ? ["40px"] : block.large ? ["50px"] : ["25px"]
+            }
           />
         ) : (
           <></>
@@ -110,7 +127,7 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
   const [showing, setShowing] = useState(0);
 
   useEffect(() => {
-    blocks.forEach((_, i) => {
+    [...blocks, undefined].forEach((_, i) => {
       setTimeout(() => {
         setShowing(i + 1);
       }, 50 * i);
@@ -118,28 +135,107 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const groupedBlocks = useMemo(() => {
+    const groupedBlocks: Block[][] = [];
+    const tmp = [...blocks];
+    let i = 0;
+
+    while (tmp.length > 0) {
+      console.log(groupedBlocks, tmp);
+      const b = tmp.shift();
+
+      if (!b) continue;
+
+      if (dividerTypeGuard(b) || (blockTypeGuard(b) && b.large)) {
+        groupedBlocks[i] = [b];
+        i++;
+        continue;
+      }
+
+      if (blockTypeGuard(b)) {
+        groupedBlocks[i] = [b];
+        const nextSmall = tmp.find((b) => blockTypeGuard(b) && !b.large);
+
+        if (nextSmall) {
+          const indexNextSmall = tmp.indexOf(nextSmall);
+          const nextDivider = tmp.find(dividerTypeGuard);
+          const indexNextDivider = nextDivider
+            ? tmp.indexOf(nextDivider)
+            : Number.MAX_VALUE;
+          if (indexNextSmall < indexNextDivider) {
+            groupedBlocks[i].push(nextSmall);
+            tmp.splice(indexNextSmall, 1);
+          }
+        }
+
+        i++;
+        continue;
+      }
+    }
+
+    return groupedBlocks;
+  }, []);
+
+  let i = 0;
+
+  console.log("RERENDERING BLOCKS");
+
   return (
-    <Flex flexWrap="wrap" m={-1}>
-      {blocks.map((block, i) => {
-        return "dividerText" in block ? (
-          <Box width={1} key={"block" + i}>
-            <Transitioner show={showing > i} duration={1500}>
-              <Divider divider={block} />
-            </Transitioner>
-          </Box>
-        ) : (
-          <Box
-            key={"block" + i}
-            p={1}
-            width={[1, 1, 1 / (width - 1), 1 / width]}
-          >
-            <Transitioner show={showing > i} duration={1500}>
-              <WrappedWorkBlock block={block} />
-            </Transitioner>
-          </Box>
-        );
-      })}
-    </Flex>
+    <>
+      <Flex flexWrap="wrap" m={-1}>
+        {groupedBlocks.map((blockGroup, groupIndex) => {
+          if (blockGroup.length === 1 && "dividerText" in blockGroup[0]) {
+            i++;
+            return (
+              <Box width={1} key={groupIndex}>
+                <Transitioner show={showing > i} duration={1500}>
+                  <Divider divider={blockGroup[0]} />
+                </Transitioner>
+              </Box>
+            );
+          }
+
+          if (blockGroup.length === 1 && (blockGroup[0] as TWorkBlock).large) {
+            const block = blockGroup[0] as TWorkBlock;
+            i++;
+            return (
+              <Box key={groupIndex} p={1} width={[1, 1, 2 / width, 2 / width]}>
+                <Transitioner show={showing > i} duration={1500}>
+                  <WrappedWorkBlock block={block} />
+                </Transitioner>
+              </Box>
+            );
+          }
+
+          if (blockGroup.length === 2) {
+            const first = i;
+            const second = i + 1;
+            i += 2;
+            return (
+              <Box key={groupIndex} width={[1, 1, 1 / width, 1 / width]} p={-1}>
+                <Transitioner show={showing > first} duration={1500}>
+                  <Box key={"block" + first} m={1}>
+                    <WrappedWorkBlock block={blockGroup[0] as TWorkBlock} />
+                  </Box>
+                  <Box key={"block" + second} m={1} mt={2}>
+                    <WrappedWorkBlock block={blockGroup[1] as TWorkBlock} />
+                  </Box>
+                </Transitioner>
+              </Box>
+            );
+          }
+
+          i++;
+          return (
+            <Box key={groupIndex} width={[1, 1, 1 / width, 1 / width]} p={1}>
+              <Transitioner show={showing > i} duration={1500}>
+                <WrappedWorkBlock block={blockGroup[0] as TWorkBlock} />
+              </Transitioner>
+            </Box>
+          );
+        })}
+      </Flex>
+    </>
   );
 };
 

@@ -10,6 +10,7 @@ export type WorkBlock = {
   country?: string;
   image?: string;
   link?: string;
+  large?: boolean;
 };
 
 export type Divider = {
@@ -22,25 +23,23 @@ export type Block = WorkBlock | Divider;
 const tools: Block[] = [
   { dividerText: "Development" },
   { title: "Apollo", image: "apollo.png" },
-  { title: "Compose", image: "jetpack.png" },
-  { title: "Go", image: "go.png" },
-  { title: "GraphQL", image: "graphql.png" },
+  { title: "Go", image: "go.png", large: true },
+  { title: "GraphQL", image: "graphql.png", large: true },
   { title: "Flutter", image: "flutter.svg" },
   { title: "gRPC", image: "grpc.png" },
   { title: "Javascript", image: "javascript.png" },
   { title: "jQuery", image: "jquery.png" },
   { title: "KMM", image: "kmm.png" },
-  { title: "Kotlin", image: "kotlin.png" },
-  { title: "Laravel", image: "laravel.png" },
   { title: "MQTT", image: "mqtt.png" },
-  { title: "Next.js", image: "next_logo.png" },
-  { title: "Node", image: "node.png" },
+  { title: "Next.js", image: "next_logo.png", large: true },
+  { title: "Node", image: "node.png", large: true },
+  { title: "Nvidia", image: "nvidia.png" },
   { title: "PHP", image: "php.png" },
-  { title: "React", image: "react.png" },
-  { title: "Redux", image: "redux.png" },
+  { title: "Python", image: "python.png" },
+  { title: "React", image: "react.png", large: true },
   { title: "Swift", image: "swift.png" },
-  { title: "SwiftUI", image: "swiftui.png" },
-  { title: "Typescript", image: "typescript.png" },
+  { title: "Turborepo", image: "turborepo.png" },
+  { title: "Typescript", image: "typescript.png", large: true },
 
   { dividerText: "Data" },
   { title: "BigQuery", image: "bq.png" },
@@ -52,17 +51,17 @@ const tools: Block[] = [
   { title: "Tableau", image: "tableau.svg" },
 
   { dividerText: "Infrastructure" },
-  { title: "AWS", image: "aws.png" },
+  { title: "AWS", image: "aws.png", large: true },
   { title: "Docker", image: "docker.png" },
   { title: "Flux", image: "flux.png" },
-  { title: "GCP", image: "gcp.png" },
-  { title: "Kubernetes", image: "k8.png" },
-  { title: "Terraform", image: "terraform.webp" },
+  { title: "Github Actions", image: "gh_actions.png" },
+  { title: "GCP", image: "gcp.png", large: true },
+  { title: "K8", image: "k8.png" },
+  { title: "Terraform", image: "terraform.png" },
 
   { dividerText: "Design" },
-  { title: "Figma", image: "figma.png" },
+  { title: "Figma", image: "figma.png", large: true },
   { title: "Illustrator", image: "illustrator.png" },
-  { title: "Photoshop", image: "photoshop.png" },
 ];
 
 const project: Block[] = [
@@ -194,7 +193,7 @@ const Work: React.FC = () => {
         id={"#software"}
         title="Software Engineer"
         blocks={tools}
-        width={4}
+        width={5}
       />
       <WorkBlocks
         id={"#project"}
