@@ -68,6 +68,8 @@ const project: Block[] = [
   { title: "Agile/Scrum", image: "scrum.png" },
   { title: "ClickUp", image: "clickup.png" },
   { title: "Jira", image: "jira.svg" },
+  { title: "Linear", image: "linear.svg" },
+  { title: "Notion", image: "notion.png" },
   { title: "Projects", image: "github.png" },
 ];
 
