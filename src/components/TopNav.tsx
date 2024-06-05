@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Flex } from "rebass";
-import { MdHome, MdInvertColors } from "react-icons/md";
+import { MdHome, MdInvertColors, MdMap } from "react-icons/md";
 import { FaDatabase, FaPaintBrush } from "react-icons/fa";
 import { ThemeContext } from "../theme/ThemeContext";
 import Icon from "../theme/symbols/Icon";
@@ -37,6 +37,9 @@ const ThemeIcon: React.FC = () => {
                 <Icon icon={MdHome} iconProps={{ fontSize: "1.5rem" }} />
               </Link>
             )}
+            <a href="https://ams.haydnjm.com" target="_blank" rel="noreferrer">
+              <Icon icon={MdMap} iconProps={{ fontSize: "1.5rem" }} />
+            </a>
             <Link to="/draw">
               <Icon icon={FaPaintBrush} iconProps={{ fontSize: "1.5rem" }} />
             </Link>
