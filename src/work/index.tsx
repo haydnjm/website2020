@@ -22,6 +22,7 @@ export type Block = WorkBlock | Divider;
 
 const tools: Block[] = [
   { dividerText: "Development" },
+  { title: "Astro", image: "astro.png" },
   { title: "Apollo", image: "apollo.png" },
   { title: "Go", image: "go.png", large: true },
   { title: "GraphQL", image: "graphql.png", large: true },

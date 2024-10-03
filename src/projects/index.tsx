@@ -16,9 +16,9 @@ const projects = [
     name: "Amsterdam house price map",
     colour: "#3a5487",
     logo: "tableau.svg",
-    image: "amsterdam.png",
-    link: "https://public.tableau.com/app/profile/haydn.morris/viz/Amshouseprices/Story1?publish=yes",
-    text: "A few maps showing the price of houses in Amsterdam. Data periodically scraped from funda.nl.",
+    image: "house-prices.png",
+    link: "https://ams.haydnjm.com",
+    text: "See how house prices have changed over time across Amsterdam, as well as new listings as they come on the market.",
   },
 ];
 
