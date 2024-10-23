@@ -138,32 +138,47 @@ const Blocks: React.FC<BlocksProps> = ({ blocks, width }) => {
   const groupedBlocks = useMemo(() => {
     const groupedBlocks: Block[][] = [];
     const tmp = [...blocks];
-    let i = 0;
+    let i = 0; // block position (can be stacked small blocks or a large block)
 
     while (tmp.length > 0) {
-      console.log(groupedBlocks, tmp);
       const b = tmp.shift();
 
       if (!b) continue;
 
+      // put dividers or large blocks in as soon as they pop up
       if (dividerTypeGuard(b) || (blockTypeGuard(b) && b.large)) {
         groupedBlocks[i] = [b];
         i++;
         continue;
       }
 
+      // If it's small block, and the next block is large, then get the next small block to fill the gap
       if (blockTypeGuard(b)) {
-        groupedBlocks[i] = [b];
-        const nextSmall = tmp.find((b) => blockTypeGuard(b) && !b.large);
+        const nextLargeBlock = tmp.find((b) => blockTypeGuard(b) && b.large);
+        const nextDivider = tmp.find(dividerTypeGuard);
 
-        if (nextSmall) {
-          const indexNextSmall = tmp.indexOf(nextSmall);
-          const nextDivider = tmp.find(dividerTypeGuard);
+        // If there's no large block, or theres a divider before the next large block, then just put it in the current group
+        if (
+          !nextLargeBlock ||
+          !nextDivider ||
+          tmp.indexOf(nextDivider) < tmp.indexOf(nextLargeBlock)
+        ) {
+          groupedBlocks[i] = [b];
+          i++;
+          continue;
+        }
+
+        groupedBlocks[i] = [b];
+        const nextSmallBlock = tmp.find((b) => blockTypeGuard(b) && !b.large);
+
+        if (nextSmallBlock) {
+          const indexNextSmall = tmp.indexOf(nextSmallBlock);
           const indexNextDivider = nextDivider
             ? tmp.indexOf(nextDivider)
             : Number.MAX_VALUE;
+
           if (indexNextSmall < indexNextDivider) {
-            groupedBlocks[i].push(nextSmall);
+            groupedBlocks[i].push(nextSmallBlock);
             tmp.splice(indexNextSmall, 1);
           }
         }

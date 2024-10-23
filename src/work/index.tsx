@@ -57,7 +57,7 @@ const tools: Block[] = [
   { title: "Flux", image: "flux.png" },
   { title: "Github Actions", image: "gh_actions.png" },
   { title: "GCP", image: "gcp.png", large: true },
-  { title: "K8", image: "k8.png" },
+  { title: "Kubernetes", image: "k8.png", large: true },
   { title: "Terraform", image: "terraform.png" },
 
   { dividerText: "Design" },
@@ -77,48 +77,43 @@ const project: Block[] = [
 const companies: Block[] = [
   {
     title: "Landis+Gyr",
-
     country: "Manchtester, UK",
     image: "landis.jpg",
     link: "https://www.landisgyr.eu/",
   },
   {
     title: "ExternPro",
-
     country: "Alcañiz, SP",
     image: "externpro.png",
     link: "https://www.motogp.com/en/news/2013/06/12/externpro-looking-after-engines-from-motorland/161625",
   },
   {
     title: "AvioRace",
-
     country: "Modena, IT",
     image: "avio.jpg",
     link: "https://aviorace.it/en",
   },
   {
     title: "Intique",
-
+    large: false,
     country: "Manchester, UK",
     image: "intique.png",
   },
   {
     title: "Damflask Consulting",
-
     country: "Sheffield, UK",
     image: "damflask.png",
     link: "https://damflask-consulting.com/",
   },
   {
     title: "De Energiebespaarders",
-
+    large: false,
     country: "Amsterdam, NL",
     image: "deb.png",
     link: "http://energiebespaarders.nl/",
   },
   {
     title: "Erasmus Tech Community",
-
     country: "Rotterdam, NL",
     image: "etc.svg",
     link: "https://www.erasmustech.io/",
@@ -131,9 +126,16 @@ const companies: Block[] = [
   },
   {
     title: "Ivy Solutions GmbH",
+    large: false,
     country: "Munich, DE",
     image: "ivy.jpg",
     link: "https://www.ivy-solutions.de/",
+  },
+  {
+    title: "James Broad Media",
+    country: "Manchester, UK",
+    image: "james.png",
+    link: "https://www.jamesbroad.net/",
   },
 ];
 
